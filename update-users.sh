@@ -1,2 +1,2 @@
 #!/bin/sh
-nixos-channel --update
+nix-channel --update
