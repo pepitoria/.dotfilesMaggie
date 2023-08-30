@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo nixos-channel --update
+sudo nix-channel --update
