@@ -82,22 +82,37 @@
   users.users.pep = {
     isNormalUser = true;
     description = "pep";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
+    # allowUnfree = true;
     packages = with pkgs; [
       firefox
-      git
-      vim
+      vscode
+      flatpak
+      gnome.gnome-software
     #  thunderbird
     ];
+  };
+
+  system.userActivationScripts = {
+    flathub = {
+      text = ''
+      /run/current-system/sw/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    '';
+    };
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.docker.enable = true;
+  services.flatpak.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
+    git
+    docker-compose
   #  wget
   ];
 
