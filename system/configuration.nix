@@ -8,6 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      ./services.sunshine.nix
+
     ];
 
   # Bootloader.
@@ -23,6 +25,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  
+  # ports sunshine
+  networking.firewall.allowedTCPPortRanges = [ { from = 47984; to = 48010; } ];
+  networking.firewall.allowedUDPPortRanges = [ { from = 47998; to = 48010; } ];
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -77,6 +83,8 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  services.sunshine.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pep = {
