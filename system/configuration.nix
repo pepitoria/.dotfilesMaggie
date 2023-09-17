@@ -8,15 +8,20 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      ./services.sunshine.nix
+      #./services.sunshine.nix
 
     ];
+
+  # ports sunshine
+  # networking.firewall.allowedTCPPortRanges = [ { from = 47984; to = 48010; } ];
+  # networking.firewall.allowedUDPPortRanges = [ { from = 47998; to = 48010; } ];
+  # services.sunshine.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "maggie"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -26,10 +31,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
   
-  # ports sunshine
-  networking.firewall.allowedTCPPortRanges = [ { from = 47984; to = 48010; } ];
-  networking.firewall.allowedUDPPortRanges = [ { from = 47998; to = 48010; } ];
-
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
 
@@ -84,7 +85,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.sunshine.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pep = {
@@ -97,6 +97,7 @@
       vscode
       flatpak
       gnome.gnome-software
+      gnome-browser-connector
     #  thunderbird
     ];
   };
