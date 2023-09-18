@@ -1,0 +1,7 @@
+https://github.com/tadfisher/android-nixpkgs
+
+
+sudo nix-channel --add https://tadfisher.github.io/android-nixpkgs android-nixpkgs
+sudo nix-channel --update android-nixpkgs
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+sudo nix-channel --update
