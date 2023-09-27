@@ -1,0 +1,1 @@
+flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam
