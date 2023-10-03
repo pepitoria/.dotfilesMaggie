@@ -99,7 +99,7 @@
       flatpak
       gnome.gnome-software
       gnome-browser-connector
-      
+      distrobox
     ];
   };
 
@@ -124,13 +124,14 @@
     git
     docker-compose
     htop
+    nvtop
   #  wget
   ];
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.guest.x11 = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
+  #virtualisation.virtualbox.guest.x11 = true;
+  #users.extraGroups.vboxusers.members = [ "pep" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
