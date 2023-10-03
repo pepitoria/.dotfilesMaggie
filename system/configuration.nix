@@ -10,7 +10,7 @@
       /etc/nixos/hardware-configuration.nix
       #./services.sunshine.nix
       ./android.nix
-
+      ./distrobox.nix
     ];
 
   # ports sunshine
@@ -84,9 +84,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-
+  # services.xserver.libinput.enable = true; 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pep = {
     isNormalUser = true;
@@ -99,7 +97,6 @@
       flatpak
       gnome.gnome-software
       gnome-browser-connector
-      distrobox
     ];
   };
 
