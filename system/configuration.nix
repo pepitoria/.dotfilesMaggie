@@ -4,13 +4,18 @@
 
 { config, pkgs, ... }:
 
+let
+  baseconfig = { allowUnfree = true; };
+  unstable = import <nixos-unstable> { config = baseconfig; };
+
+in
 {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       #./services.sunshine.nix
       ./android.nix
-      ./distrobox.nix
+      ./distrobox.nix      
     ];
 
   # ports sunshine
@@ -97,6 +102,7 @@
       flatpak
       gnome.gnome-software
       gnome-browser-connector
+      unstable.jetbrains.idea-community
     ];
   };
 
