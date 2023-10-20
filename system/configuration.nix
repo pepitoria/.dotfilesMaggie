@@ -6,7 +6,6 @@
 
 let
   baseconfig = { allowUnfree = true; };
-  unstable = import <nixos-unstable> { config = baseconfig; };
 
 in
 {
@@ -16,6 +15,7 @@ in
       #./services.sunshine.nix
       ./android.nix
       ./distrobox.nix      
+      ./idea.nix
     ];
 
   # ports sunshine
@@ -102,7 +102,6 @@ in
       flatpak
       gnome.gnome-software
       gnome-browser-connector
-      unstable.jetbrains.idea-community
     ];
   };
 
